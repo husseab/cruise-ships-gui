@@ -1,0 +1,14 @@
+{
+  "name": "cruise-ships",
+  "version": "0.1.0",
+  "description": "cruise-ship",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "abdikarim hussein",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
+}
