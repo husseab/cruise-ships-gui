@@ -12,14 +12,14 @@ describe('Port', () => {
         })
         it('can add a ship', () => {
             const port= new Port('Liverpool');
-            const ship = {};
+            const ship = jest.fn();
             port.addShip(ship);
             expect(port.ships).toContain(ship);
                 })
          it('can remove a ship', () => {
              const port= new Port('Liverpool');
-             const titanic = {};
-             const queenMAry = {};
+             const titanic = jest.fn();
+             const queenMAry = jest.fn();
               port.addShip(titanic);
               port.addShip(queenMAry);
               port.removeShips(queenMAry)
