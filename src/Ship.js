@@ -9,16 +9,18 @@ this.currentPort.addShip(this);
 }
 
 Ship.prototype.setSail = function() {
-  this.currentPort.removeShips(this);
-    const currentPortIndex = this.itinerary.ports.indexOf(this.currentPort);
+ 
+    const itinerary = this.itinerary;
+    const currentPortIndex = itinerary.ports.indexOf(this.currentPort);
   
-    if (currentPortIndex === (this.itinerary.ports.length - 1)) {
+    if (currentPortIndex === (itinerary.ports.length - 1)) {
       throw new Error('End of itinerary reached');
     }
-this.previousPort = this.currentPort;
-this.currentPort = null;
-
-return this.currentPort
+  
+    this.previousPort = this.currentPort;
+    this.currentPort = null;
+   this.previousPort.removeShip(this);
+  
 }
 
 Ship.prototype.dock = function() {

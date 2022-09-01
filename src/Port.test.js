@@ -22,7 +22,7 @@ describe('Port', () => {
              const queenMAry = jest.fn();
               port.addShip(titanic);
               port.addShip(queenMAry);
-              port.removeShips(queenMAry)
+              port.removeShip(queenMAry)
               expect(port.ships).toEqual([titanic]);
                         })
     })

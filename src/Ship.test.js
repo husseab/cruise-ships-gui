@@ -16,44 +16,53 @@ it('can be instantiated', () => {
         const ship = new Ship(itinerary);
 expect(ship.currentPort).toBe(port);
     })
-    it('gets added to port on instantiation', () => {
-        const dover = new Port('Dover');
-        const itinerary = new Itinerary([dover]);
-        const ship = new Ship(itinerary);
-      
-        expect(dover.ships).toContain(ship);
-      });
+    
 
     describe('Same Setup actions', () => {
-       let calais;
-       let dover;
-        let itinerary;
-        let ship;
-        beforeEach(() => {  
-        dover = new Port('Dover');
-        calais = new Port('Calais');
-        itinerary = new Itinerary([dover, calais]);
-        ship = new Ship(itinerary); });
-    it('can set sail', () => {
-ship.setSail();
-expect(ship.currentPort).toBeFalsy();
-expect(ship.previousPort).toBe(dover);
-expect(dover.ships).not.toContain(ship);
-    });
-
-    it('can dock at a different port', () => {
+        let dover;
+        let calais;
+        
+        beforeEach(() => {
+          dover = {
+            addShip: jest.fn(),
+            removeShip: jest.fn(),
+            name: 'Dover',
+            ships: []
+          };
+        
+          calais = {
+            addShip: jest.fn(),
+            removeShip: jest.fn(),
+            name: 'Calais',
+            ships: []
+          };
+        
+          itinerary = new Itinerary([dover, calais]);
+          ship = new Ship(itinerary);
+        });
+        it('can set sail', () => {
+            ship.setSail();
+          
+            expect(ship.currentPort).toBeFalsy();
+            expect(dover.removeShip).toHaveBeenCalledWith(ship)
+          });
+        it('can dock at a different port', () => {
         ship.setSail();
         ship.dock();
       
         expect(ship.currentPort).toBe(calais);
-        expect(calais.ships).toContain(ship);
+        expect(calais.addShip).toHaveBeenCalledWith(ship)
       })
-      it('can\'t sail further than its itinerary', () => {
+        it('can\'t sail further than its itinerary', () => {
       
         ship.setSail();
         ship.dock();
       
         expect(() => ship.setSail()).toThrowError('End of itinerary reached');
       });
+      it('gets added to port on instantiation', () => {
+      
+     expect(dover.addShip).toHaveBeenCalledWith(ship);
+      });
+      });
     })
-})
