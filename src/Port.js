@@ -1,18 +1,21 @@
-function Port(name) {
-this.portName = name;
-this.ships = [];
-}
+(function exportPort() {
+  function Port(name) {
+    this.name = name;
+    this.ships = [];
+  }
 
+  Port.prototype = {
+    addShip(ship) {
+      this.ships.push(ship);
+    },
+    removeShip(ship) {
+      this.ships = this.ships.filter(dockedShip => dockedShip !== ship);
+    },
+  };
 
-
-Port.prototype.addShip = function(ship) {
- return this.ships.push(ship) 
-};
-
-Port.prototype.removeShip = function(ship) {  
-let myIndex = this.ships.indexOf(ship);
- return this.ships.splice(myIndex, 1)
-    
-    }
-
-module.exports = Port;
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Port;
+  } else {
+    window.Port = Port;
+  }
+}());
