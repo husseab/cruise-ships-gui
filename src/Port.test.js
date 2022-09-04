@@ -1,5 +1,5 @@
 const Port = require('./Port');
-const Ship = require('./Ship');
+
 
 describe('Port', () => {
     it('can be instantiated', () => {
