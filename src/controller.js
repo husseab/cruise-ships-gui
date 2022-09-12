@@ -31,6 +31,19 @@ portsElement.style.width = `${portsElementWidth + 256}px`;
       shipElement.style.top = `${portElement.offsetTop + 32}px`;
       shipElement.style.left = `${portElement.offsetLeft - 32}px`;
   },
+  renderMessage() {
+    const messageElement = document.createElement('div');
+    messageElement.id = 'message';
+    messageElement.innerHTML = message;
+    
+    const viewport = document.querySelector('#viewport');
+    viewport.appendChild(messageElement);
+    setTimeout(() => {
+      viewport.removeChild(messageElement);
+    }, 2000);
+  },
+
+
   setSail() {
     const ship = this.ship
 
@@ -51,9 +64,7 @@ const sailInterval = setInterval(() => {
 
   shipElement.style.left = `${shipLeft + 1}px`;
 }, 20);
-
-
-  },
+  }
 
   };
 

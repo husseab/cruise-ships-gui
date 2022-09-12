@@ -48,3 +48,45 @@ html, body {
     border-bottom-width: 0;
     padding-top: 14px;
   }
+  #message {
+    padding: 16px;
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-top: 3px solid black;
+    background-color: white;
+  }
+  #headsUp {
+    border: 0;
+    color: white;
+    font-family: inherit;
+    padding: 10px 20px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+text-align: right;
+    font-family: 'Press Start 2P', cursive;
+  }
+  #Box1 {
+    display: grid;
+    background-color: white;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* see notes below */
+    grid-gap: 1em;
+    border: 10px double black;
+  }
+  #button {
+    width: 10em;
+    height: 5ex;
+    background-color: red;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    cursor: pointer;
+}
+#button:hover {
+    background-color: gold;
+}
