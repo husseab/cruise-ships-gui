@@ -4,6 +4,7 @@
   "description": "cruise-ship",
   "main": "index.js",
   "scripts": {
+    "start": "xdg-open index.html",
     "test": "jest"
   },
   "author": "abdikarim hussein",
@@ -18,6 +19,8 @@
     "jest": "^28.1.3"
   },
   "dependencies": {
+    "g": "^2.0.1",
+    "nodemon": "^2.0.20",
     "normalize.css": "^8.0.1"
   }
 }
