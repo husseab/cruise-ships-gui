@@ -41,7 +41,7 @@
     }
 
     initialiseSea () {
-      const backgrounds = ['./images/images//water0.png', './images/images/water1.png']
+      const backgrounds = ['./images/water0.png', './images/water1.png']
       const waterImage = document.querySelector('#viewport')
       let counter = 0
       window.setInterval(() => {
